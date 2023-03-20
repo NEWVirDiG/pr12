@@ -1,0 +1,77 @@
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace PR15_1
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            string[] products = { "Яблоко", "Шоколад", "Морковь",
+//                "Чипсы", "Сухарики" , "Кортофель", "Говядина", "Авокадо","Памелло"};
+
+//            string[] product1 = { "Яблоко",
+//                "Шоколад", "Морковь",
+//                "Чипсы", "Сухарики" };
+//            string[] product2 = { "Яблоко",
+//                "Чипсы", "Сухарики" };
+//            string[] product3 = { "Яблоко",
+//                "Чипсы", "Кортофель", "Говядина",
+//                "Mars", "Сухарики" };
+//            Console.WriteLine("Товары в каждом магазине");
+//            Print_mnozh(product1.Intersect(product2).Intersect(product3));
+//            Console.WriteLine("Нет ни в одном магазине");
+//            Print_mnozh(products.Except(product1).Except(product2).Except(product3));
+//            Console.WriteLine("Есть хотя бы в одном");
+//            Print_mnozh(product1.Union(product2).Union(product3).
+//                Except(product1.Intersect(product2).Intersect(product3)));
+//            Console.ReadKey();
+
+//        }
+//        private static void Print_mnozh(IEnumerable<string> res)
+//        {
+//            foreach (string s in res)
+//                Console.WriteLine(s);
+//        }
+//    }
+//}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR15_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            string line = Console.ReadLine();//строка с клавиатуры
+            char[] chars = line.ToCharArray();//множество символов строки
+            char[] glasletter = { 'a', 'e', 'u', 'i', 'o', 'y' };//множество гласных букв 
+            Console.WriteLine(chars.Intersect(glasletter).Count());// кол глассных в исходной строке
+            int a = chars.Intersect(glasletter).Count();
+            char[] sogletter = { 'q', 'w', 'r', 't', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', };//множество гласных букв 
+            Console.WriteLine(chars.Intersect(sogletter).Count());// кол сог в исходной строке
+            int b = chars.Intersect(sogletter).Count();
+            if (a > b)
+            {
+                Console.WriteLine("Гласных больше");
+
+            }
+            else
+            {
+                Console.WriteLine("Согласных больше");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
